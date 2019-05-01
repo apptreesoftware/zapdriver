@@ -22,11 +22,11 @@ func SourceLocation(pc uintptr, file string, line int, ok bool) zap.Field {
 type source struct {
 	// Optional. Source file name. Depending on the runtime environment, this
 	// might be a simple name or a fully-qualified name.
-	File string `json:"file"`
+	File string `json:"filePath"`
 
 	// Optional. Line within the source file. 1-based; 0 indicates no line number
 	// available.
-	Line string `json:"line"`
+	Line string `json:"lineNumber"`
 
 	// Optional. Human-readable name of the function or method being invoked, with
 	// optional context such as the class or package name. This information may be
@@ -34,14 +34,14 @@ type source struct {
 	// less meaningful.
 	//
 	// The format should be dir/package.func.
-	Function string `json:"function"`
+	Function string `json:"functionName"`
 }
 
 // MarshalLogObject implements zapcore.ObjectMarshaller interface.
 func (source source) MarshalLogObject(enc zapcore.ObjectEncoder) error {
-	enc.AddString("file", source.File)
-	enc.AddString("line", source.Line)
-	enc.AddString("function", source.Function)
+	enc.AddString("filePath", source.File)
+	enc.AddString("lineNumber", source.Line)
+	enc.AddString("functionName", source.Function)
 
 	return nil
 }
