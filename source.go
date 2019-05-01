@@ -8,7 +8,7 @@ import (
 	"go.uber.org/zap/zapcore"
 )
 
-const sourceKey = "logging.googleapis.com/sourceLocation"
+const sourceKey = "reportLocation"
 
 // SourceLocation adds the correct Stackdriver "SourceLocation" field.
 //
