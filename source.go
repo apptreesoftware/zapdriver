@@ -8,7 +8,7 @@ import (
 	"go.uber.org/zap/zapcore"
 )
 
-const sourceKey = "reportLocation"
+const sourceKey = "sourceLocation"
 
 // SourceLocation adds the correct Stackdriver "SourceLocation" field.
 //
